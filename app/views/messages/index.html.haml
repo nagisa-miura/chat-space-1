@@ -39,11 +39,11 @@
         .message-box__text こんにちは
       
     .form-main
-      %form.form-box{:action => "./hoge/hoge", :method => "post"}
+      %form.form-box{action: "./hoge/hoge", method: "post"}
         .entry-box
-          %input.entry-box__input-box{:type => "text", placeholder: "type a message"}
+          %input.entry-box__input-box{type: "text", placeholder: "type a message"}
           .entry-box__image-box
             %label
               .fa.fa-picture-o.fa-lg
-              %input{:type => "file"}
-        %input.form-box__send-button{:type => "submit", :value => "Send"}
+              %input{type: "file"}
+        %input.form-box__send-button{type: "submit", value: "Send"}
