@@ -2,10 +2,11 @@
 *= require font-awesome
 */
 
-@import "./reset";
-@import "./variable";
-@import './flash.scss';
-@import './chat-side-bar';
-@import './chat-main';
-@import './user';
+@import "config/reset";
+@import "config/variable";
+@import 'modules/flash.scss';
+@import 'modules/side-bar';
+@import 'modules/chat';
+@import 'modules/user';
+@import 'modules/group';
 
