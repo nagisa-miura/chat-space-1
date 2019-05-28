@@ -1,16 +1,16 @@
 %header
-  .notice グループを作成しました
-
   .chat-side-bar
     .side-header
       .side-header__box
-        .side-header__box__user-name hoge
+        .side-header__box__user-name
+          = current_user.name
         .side-header__box__menu
           .side-header__box__menu__new-group
             = link_to root_path do
-              %i.fa.fa-edit
-            = link_to root_path do
-              %i.fa.fa-cog
+              = fa_icon 'pencil-square-o', class: 'icon'
+            = link_to edit_user_path(current_user) do
+              = fa_icon 'cog', class: 'icon'
+
           .side-header__box__menu__edit-user
     .groups
       .group
