@@ -9,18 +9,13 @@
     .main-header__right-box
       .main-header__edit-button Edit
   .messages
-    .message-box
-      .message-box__upper-info
-        .message-box__upper-info__user-name hoge
-        .message-box__upper-info__post-date 2019/05/22(Wed) 17:44:56
-      .message-box__text こんにちは
+    = render @messages
     
-  .form-main
-    %form.form-box{action: "./hoge/hoge", method: "post"}
-      .entry-box
-        %input.entry-box__input-box{type: "text", placeholder: "type a message"}
-        .entry-box__image-box
-          %label
-            .fa.fa-picture-o.fa-lg
-            %input{type: "file"}
-      %input.form-box__send-button{type: "submit", value: "Send"}
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'

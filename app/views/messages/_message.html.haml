@@ -1,0 +1,10 @@
+.message-box
+  .message-box__upper-info
+    .message-box__upper-info__user-name 
+      = message.user.name
+    .message-box__upper-info__post-date 
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
+  - if message.content.present?
+    .message-box__text
+      = message.content
+  = image_tag message.image.url if message.image.present?
