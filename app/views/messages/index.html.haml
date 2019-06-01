@@ -1,49 +1,21 @@
-%header
-  .notice グループを作成しました
+= render 'shared/side_bar'
 
-  .chat-side-bar
-    .side-header
-      .side-header__box
-        .side-header__box__user-name hoge
-        .side-header__box__menu
-          .side-header__box__menu__new-group
-            = link_to root_path do
-              %i.fa.fa-edit
-            = link_to root_path do
-              %i.fa.fa-cog
-          .side-header__box__menu__edit-user
-    .groups
-      .group
-        .group__name hogehoges
-        .group__latest-message こんにちは
-      .group
-        .group__name fugafuga
-        .group__latest-message おはよう
-      .group
-        .group__name foobar
-        .group__latest-message hello!
-        
-  .chat-main
-    .main-header
-      .main-header__left-box
-        .main-header__left-box__current-group hogehoges
-        .main-header__left-box__member-list 
-          .main-header__left-box__member-list__member fuga
-      .main-header__right-box
-        .main-header__edit-button Edit
-    .messages
-      .message-box
-        .message-box__upper-info
-          .message-box__upper-info__user-name hoge
-          .message-box__upper-info__post-date 2019/05/22(Wed) 17:44:56
-        .message-box__text こんにちは
-      
-    .form-main
-      %form.form-box{action: "./hoge/hoge", method: "post"}
-        .entry-box
-          %input.entry-box__input-box{type: "text", placeholder: "type a message"}
-          .entry-box__image-box
-            %label
-              .fa.fa-picture-o.fa-lg
-              %input{type: "file"}
-        %input.form-box__send-button{type: "submit", value: "Send"}
+.chat-main
+  .main-header
+    .main-header__left-box
+      .main-header__left-box__current-group hogehoges
+      .main-header__left-box__member-list 
+        .main-header__left-box__member-list__member fuga
+    .main-header__right-box
+      .main-header__edit-button Edit
+  .messages
+    = render @messages
+    
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
