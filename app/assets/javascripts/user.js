@@ -56,10 +56,10 @@ $(function(){
     console.log(user_id)
     console.log(user_name)
     var html = `
-                <div class="chat-group-user clearfix" id="chat-group-user-${user_id}>
+                <div class="chat-group-user clearfix" id="chat-group-user-${user_id}">
                   <input name="group[user_ids][]" type="hidden" value="${user_id}">
                     <p class="chat-group-user__name">${user_name}</p>
-                    <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn">削除</a>
+                    <a class="user-search-remove chat-group-user__btn js-remove-btn" id="chat-group-user__btn--remove" >削除</a>
                 </div>
                 `
     $('#user-add').append(html);
@@ -74,7 +74,7 @@ $(function(){
     $(this).parent().remove();
   });
   //削除を押すと、チャットメンバーから削除する
-  $('#chat-group-users').on('click','.chat-group-user__btn--remove',function(){
+  $(document).on('click','#chat-group-user__btn--remove',function(){
     $(this).parent().remove();
   });
 });  //#member_search

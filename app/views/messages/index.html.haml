@@ -3,11 +3,18 @@
 .chat-main
   .main-header
     .main-header__left-box
-      .main-header__left-box__current-group hogehoges
+      .main-header__left-box__current-group
+        = @group.name
       .main-header__left-box__member-list 
-        .main-header__left-box__member-list__member fuga
+        .main-header__left-box__member-list__member
+          %ul Member：
+          - @group.users.each do |user|
+            %li
+              = user.name
     .main-header__right-box
-      .main-header__edit-button Edit
+      .main-header__edit-button
+        = link_to edit_group_path(@group) do
+          %p edit
   .messages
     = render @messages
     
