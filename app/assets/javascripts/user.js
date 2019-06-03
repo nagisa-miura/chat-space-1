@@ -53,8 +53,6 @@ $(function(){
 
   //ユーザ追加
   function addUser(user_id, user_name) {
-    console.log(user_id)
-    console.log(user_name)
     var html = `
                 <div class="chat-group-user clearfix" id="chat-group-user-${user_id}">
                   <input name="group[user_ids][]" type="hidden" value="${user_id}">
@@ -63,7 +61,6 @@ $(function(){
                 </div>
                 `
     $('#user-add').append(html);
-    console.log(html)
   }
 
   //追加ボタンが押されたときの処理
