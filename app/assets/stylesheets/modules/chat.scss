@@ -29,10 +29,15 @@
         font-size: 12px;
         margin-top: 15px;
         color: $chat-sub-text;
+        list-style: none;
 
         &__member {
-          display:inline-block;
           padding-right:5px;
+          display: inline-flex;
+
+          li{
+            padding-right: 5px; 
+          }
         }  //member
       }  //member-list
 
