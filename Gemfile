@@ -64,3 +64,7 @@ gem 'font-awesome-rails'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'mini_magick'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end

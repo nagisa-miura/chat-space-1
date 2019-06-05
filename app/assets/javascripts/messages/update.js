@@ -1,5 +1,5 @@
 $(function(){
-  //投稿者用HTML
+  //共用HTML
   function buildHTML(message){
     var image_url = (message.image)? `<image src="${message.image}">`:"";
     var html =`
