@@ -21,28 +21,6 @@ $(function(){
     return html;
   }
 
-  //自動更新受信用HTML
-  function reloadHTML(message){
-    var image_url = (message.image)? `<image src="${message.image}">`:"";
-    var html =`
-            <div class="message-box" data-message-id= "${message.id}">
-              <div class="message-box__upper-info">
-                <div class="message-box__upper-info__user-name">
-                  ${message.user_name}
-                </div>
-                <div class="message-box__upper-info__post-date">
-                  ${message.created_at}
-                </div>
-              </div>
-              <div class="message-box__text">
-                ${message.content}
-              </div>
-              ${image_url}
-            </div>
-              `
-    return html;
-  }
-
   /////////// 投稿者側のビュー反映機能 ////////////
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -94,7 +72,7 @@ $(function(){
       .done(function(messages){
         if (messages.length !== 0) {
           messages.forEach(function(message){
-            var html = reloadHTML(message);
+            var html = buildHTML(message);
             $('.messages').append(html);
             $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight }, 'fast');
           });
