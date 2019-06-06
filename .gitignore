@@ -20,3 +20,6 @@ vendor/bundle/
 bin/
 *.gemspec
 public/
+config/secrets.yml
+config/secrets.yml
+config/secrets.yml
