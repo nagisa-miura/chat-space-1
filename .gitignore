@@ -19,3 +19,4 @@
 vendor/bundle/
 bin/
 *.gemspec
+public/
