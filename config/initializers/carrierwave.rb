@@ -12,6 +12,6 @@ CarrierWave.configure do |config|
     region: 'us-east-2'
   }
 
-  config.fog_directory  = 'ここにバケット名を入れます'
+  config.fog_directory  = 'tech-nagi'
   config.asset_host = 'https://s3-us-east-2.amazonaws.com/tech-nagi'
 end
