@@ -12,7 +12,7 @@ $(function(){
         search_list.append(html);
   }
 
-  function appendNoUser(msg) {
+  function appendNoUser(user) {
     var html =`
               <div class='chat-group-user clearfix'>
                 <p class='chat-group-user__name'>${current_user.name}</p>
@@ -38,6 +38,7 @@ $(function(){
     .done(function(users){
       $("#chat-group-users").empty();
       if (users.length !== 0) {
+        console.log(users)
         users.forEach(function(user){
           appendUser(user);
         });

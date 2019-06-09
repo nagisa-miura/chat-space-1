@@ -48,7 +48,7 @@ $(function(){
     })
 
     .always(function(){
-      $('.form__submit').prop("disabled",false);
+      $('.form__submit').prop("disabled",false); //二度押しできるように
     })
   });  //new_message
 
